@@ -1,0 +1,1491 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="遍历二叉树以及常用方法, .docx">
+    <meta name="description" content="困难是最好的老师。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>遍历二叉树以及常用方法 | .docx</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">.docx</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">.docx</div>
+        <div class="logo-desc">
+            
+            困难是最好的老师。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">遍历二叉树以及常用方法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%81%E9%81%8D%E5%8E%86/">
+                                <span class="chip bg-color">二叉树、遍历</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-02-14
+                </div>
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h2><ul>
+<li><strong>性质一</strong>：在二叉树的第$i$层上至多有$2^{i-1}$个结点$(i\geq1)$</li>
+<li><strong>性质二</strong>：深度为$k$的二叉树至多有$2^k-1$个结点$(k\geq1)$</li>
+<li><strong>性质三</strong>：对任何一棵二叉树$T$，如果其结点数为$n_0$，度为2的结点数为${n_2}$，则$n_0=n_2+1$</li>
+<li><strong>性质四</strong>：具有$n$个结点的完全二叉树的深度为$\left \lfloor Log_2n \right \rfloor+1$</li>
+<li><strong>性质五</strong>：如果对一棵有$n$个结点的完全二叉树的（其深度为$\left \lfloor Log_2n \right \rfloor+1$）的结点按层序编号（从第1层到第$\left \lfloor Log_2n \right \rfloor+1$，每层从左到右），则对任一结点$i(1\leq i\leq n)$，有<ul>
+<li>如果$如果i=1$，则结点$i$是二叉树的根，无双亲；如果$i&gt;1$，则其双亲$PARENT(i)$是结点$\left \lfloor i/2 \right \rfloor$</li>
+<li>如果$2i&gt;n$，则结点$i$无左孩子（结点$i$为叶子结点）；否则其左孩子$LCHILD(i)$是结点$2i$。</li>
+<li>如果$2i+1&gt;n$，则结点$i$无右孩子；否则其右孩子$RCHILD(i)$是结点$2i+1$</li>
+</ul>
+</li>
+</ul>
+<p>三道例题</p>
+<pre class=" language-txt"><code class="language-txt">1. 在一棵度为4的树T中，若有20个度为4的结点，10个度为3的结点，1个度为2的结点，10个度为1的结点，则树T的叶结点个数为？（2010年真题）
+A 41        !B 82         C  113          D 122
+2. 已知一棵完全二叉树的第6层（根为第1层）有8个叶结点，则该完全二叉树的结点个数最多为？(   )  (2009年真题）
+A 39        B  52       !C  111     D 119
+3. 若一棵完全二叉树有768个结点，则该二叉树中叶子结点的个数为（）：   (2011年真题）
+A 257        B  258       C  384     D 385</code></pre>
+<p><img src="DataStructTBDemo.jpg" alt="三道题演算过程"></p>
+<h2 id="森林与二叉树的转换"><a href="#森林与二叉树的转换" class="headerlink" title="森林与二叉树的转换"></a>森林与二叉树的转换</h2><ol>
+<li><p>森林转换称二叉树<br>如果$F=(T_1,T_2,…,T_m)$是森林，则可按如下规则转换成一棵二叉树$B=(root,LB,RB)$。<br>（1）若$F$为空，则$m=0$，则$B$为空树；<br>（2）若$F$非空，即$m\ne0$，则$B$的根$root$即为森林中第一棵树的根$ROOT(T_1)$；$B$的左子树LB是从$T_1$中根结点的子树森林$F_1={T_{11},T_{12},…,T_{1m}}$</p>
+</li>
+<li><p>二叉树转换成森林<br>如果$B=(root,LB,RB)$是一棵二叉树，则可按如下规则转换成森林$F={T_1,T_2,…,T_m}$;<br>(1)若$B$为空，则$F$为空；<br>(2)若$B$非空，则$F$中的第一颗树$T_1$的根$ROOT(T_1)$即为二叉树$B$的根$root$是，$T_1$中根节点的子树$F_1$是由$B$的左子树$LB$转换而成的森林；$F$中除了$T_1$之外其余树组成的森林$F^{‘}={T_2,T_3,…,T_m}$是由B的右子树$RB$转换而成的森林</p>
+</li>
+</ol>
+<h2 id="树的概念-附"><a href="#树的概念-附" class="headerlink" title="树的概念[附]"></a>树的概念[附]</h2><p>树结构是一类重要的非线性结构。树型结构是结点之间有分支，并且具有层次关系的结构。<br>树是<code>n(n&gt;=0)</code>个结点的有限集，它或为空树<code>n=0</code>;或为非空树：<br>（1）有且仅有一个称之为根的结点；<br>（2）除根结点以外的其余结点可分为<code>m（m&gt;0）</code>个互不相交的有限集$T_1,T_2,T_3,…,T_m$，其中每一个集合又是一棵树，并且称为子树<code>(SubTree)</code></p>
+<center><b>树是递归数据结构：树的定义中引用了树概念本身</b></center>
+
+
+
+<h2 id="树-二叉树的数据结构"><a href="#树-二叉树的数据结构" class="headerlink" title="树/二叉树的数据结构"></a>树/二叉树的数据结构</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> BiTNode<span class="token punctuation">{</span>
+    TElemType data<span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">// 结点数据域</span>
+    <span class="token keyword">struct</span> BiTNode <span class="token operator">*</span>lchild<span class="token punctuation">,</span><span class="token operator">*</span>rchild<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 左右孩子指针</span>
+<span class="token punctuation">}</span>BiTNode<span class="token punctuation">,</span><span class="token operator">*</span>BiTree<span class="token punctuation">;</span></code></pre>
+<h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><ul>
+<li>前序遍历</li>
+<li>中序遍历</li>
+<li>后续遍历</li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">InOrderTraverse</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 中序遍历二叉树T的递归算法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 若二叉树非空</span>
+        <span class="token function">InOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 中序遍历左子树</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 访问根结点</span>
+        <span class="token function">InOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 中序遍历右子树</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">PreOrderTraverse</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 前序遍历二叉树T的递归算法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 若二叉树非空</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 访问根结点</span>
+        <span class="token function">PreOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前序遍历左子树</span>
+        <span class="token function">PreOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前序序遍历右子树</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">PostOrderTraverse</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 后续遍历二叉树T的递归算法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 若二叉树非空</span>
+        <span class="token function">PostOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 后续遍历左子树</span>
+        <span class="token function">PostOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 后续遍历右子树</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 访问根结点</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="二叉树的深度"><a href="#二叉树的深度" class="headerlink" title="二叉树的深度"></a>二叉树的深度</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">Depth</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 计算二叉树的T的深度</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> m<span class="token operator">=</span><span class="token function">Depth</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n<span class="token operator">=</span><span class="token function">Depth</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>m<span class="token operator">></span>n<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="二叉树结点数量"><a href="#二叉树结点数量" class="headerlink" title="二叉树结点数量"></a>二叉树结点数量</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">NodeCount</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 统计二叉树T中结点的个数</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果是空树，则结点个数为0，递归结束</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> <span class="token function">NodeCount</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">NodeCount</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="二叉树非递归算法"><a href="#二叉树非递归算法" class="headerlink" title="二叉树非递归算法"></a>二叉树非递归算法</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">InOrderTraverse_rc</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 中序遍历二叉树T的非递归算法</span>
+    SqStack S<span class="token punctuation">;</span>
+    <span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    BiTree p<span class="token operator">=</span>T<span class="token punctuation">,</span>q<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">||</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// p为空</span>
+            <span class="token function">Push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            p<span class="token operator">=</span>p<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token function">Pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 退栈</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>q<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 访问根结点</span>
+            p<span class="token operator">=</span>q<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 遍历右子树</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="复制二叉树"><a href="#复制二叉树" class="headerlink" title="复制二叉树"></a>复制二叉树</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">Copy</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">,</span>BiTree <span class="token operator">&amp;</span>NewT<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 复制一颗和T完全相同的二叉树</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                            <span class="token comment" spellcheck="true">// 如果是空树，递归结束 </span>
+        NewT<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        NewT<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        NewT<span class="token operator">-</span><span class="token operator">></span>data<span class="token operator">=</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// 复制根结点 </span>
+        <span class="token function">Copy</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">,</span>NewT<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 递归复制左子树 </span>
+        <span class="token function">Copy</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">,</span>NewT<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 递归复制右子树 </span>
+    <span class="token punctuation">}</span>                                    <span class="token comment" spellcheck="true">// else </span>
+<span class="token punctuation">}</span> </code></pre>
+<h2 id="在遍历二叉树的时候遇到的问题"><a href="#在遍历二叉树的时候遇到的问题" class="headerlink" title="在遍历二叉树的时候遇到的问题"></a>在遍历二叉树的时候遇到的问题</h2><ul>
+<li>中序遍历二叉树T的非递归算法中用到了栈，栈如何定义？</li>
+<li>写<code>Copy</code>方法的时候，出现了<code>Program received signal SIGSEGV, Segmentation fault</code>错误。</li>
+<li><font color="red">第一个出现问题的解决办法代码</font></li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">InitStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 创建一个空栈</span>
+    S<span class="token punctuation">.</span>base<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token operator">*</span>MAXSIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// BiTree 是一个指针，要建立一个存放指针的数组</span>
+    <span class="token comment" spellcheck="true">// (指针的指针)malloc(sizeof(指针)*MAXSIZE);</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    S<span class="token punctuation">.</span>top<span class="token operator">=</span>S<span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+    S<span class="token punctuation">.</span>stacksize<span class="token operator">=</span>MAXSIZE<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> </code></pre>
+<p>也就是说需要动态分配一个存放指针的数组，而指向这个数组也是一个指针<br>所以是</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token punctuation">(</span>指针的指针<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>指针<span class="token punctuation">)</span><span class="token operator">*</span>MAXSIZE<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li><font color="red">第二个出现问题的解决办法</font></li>
+</ul>
+<p><code>Program received signal SIGSEGV, Segmentation fault</code>这句话翻译过来是程序接受了一个<code>SIGSEGV</code>的标志，分割失败，说白了就是某个地方的值越界了，后来仔细看看原来是<code>if(T=NULL)</code>少了一个等号</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">Copy</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">,</span>BiTree <span class="token operator">&amp;</span>NewT<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 复制一颗和T完全相同的二叉树</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">// 少了一个等号</span>
+        NewT<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        NewT<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        NewT<span class="token operator">-</span><span class="token operator">></span>data<span class="token operator">=</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// 复制根结点</span>
+        <span class="token function">Copy</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">,</span>NewT<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 递归复制左子树</span>
+        <span class="token function">Copy</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">,</span>NewT<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 递归复制右子树</span>
+    <span class="token punctuation">}</span>                                    <span class="token comment" spellcheck="true">// else</span>
+<span class="token punctuation">}</span></code></pre>
+<p>完整代码贴出</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> MAXSIZE 100</span>
+
+<span class="token comment" spellcheck="true">// - - - - 二叉树的二叉链表存储表示 - - - -</span>
+<span class="token keyword">typedef</span> <span class="token keyword">char</span> TElemType<span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> BiTNode<span class="token punctuation">{</span>
+    TElemType data<span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">// 结点数据域</span>
+    <span class="token keyword">struct</span> BiTNode <span class="token operator">*</span>lchild<span class="token punctuation">,</span><span class="token operator">*</span>rchild<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 左右孩子指针  </span>
+<span class="token punctuation">}</span>BiTNode<span class="token punctuation">,</span><span class="token operator">*</span>BiTree<span class="token punctuation">;</span> 
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span><span class="token punctuation">{</span>
+    BiTree <span class="token operator">*</span>base<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 栈底指针 </span>
+    BiTree <span class="token operator">*</span>top<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 栈顶指针 </span>
+    <span class="token keyword">int</span> stacksize<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 栈可用的最大容量 </span>
+<span class="token punctuation">}</span>SqStack<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">InitStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 创建一个空栈 </span>
+    S<span class="token punctuation">.</span>base<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token operator">*</span>MAXSIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// BiTree 是一个指针，要建立一个存放指针的数组</span>
+    <span class="token comment" spellcheck="true">// (指针的指针)malloc(sizeof(指针)*MAXSIZE);</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    S<span class="token punctuation">.</span>top<span class="token operator">=</span>S<span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+    S<span class="token punctuation">.</span>stacksize<span class="token operator">=</span>MAXSIZE<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">Push</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">,</span>BiTree bt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top<span class="token operator">-</span>S<span class="token punctuation">.</span>base<span class="token operator">==</span>S<span class="token punctuation">.</span>stacksize<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token operator">*</span>S<span class="token punctuation">.</span>top<span class="token operator">++</span><span class="token operator">=</span>bt<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">Pop</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">,</span>BiTree <span class="token operator">&amp;</span>bt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 删除S的栈顶元素，用e返回其值</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top<span class="token operator">==</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    bt<span class="token operator">=</span><span class="token operator">*</span><span class="token operator">--</span>S<span class="token punctuation">.</span>top<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">StackEmpty</span><span class="token punctuation">(</span>SqStack S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top<span class="token operator">==</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* ①扫描字符序列，读入字符ch 
+    * ②如果ch是一个"#"字符，则表明该二叉树为空树，即T为NULL；否则执行以下操作 
+    *         # 申请一个结点空间T 
+    *      # 将ch赋给T->data
+    *        # 递归创建T的左子树
+    *        # 递归创建T的右子树  
+    */</span>
+<span class="token keyword">void</span> <span class="token function">CreateBiTree</span><span class="token punctuation">(</span>BiTree <span class="token operator">&amp;</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 按先后次序输入二叉树中结点的值（一个字符），创建二叉链表表示二叉树T</span>
+    <span class="token keyword">char</span> ch<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>ch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ch<span class="token operator">==</span><span class="token string">'#'</span><span class="token punctuation">)</span> 
+        T<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>    
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        T<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 生成根节点</span>
+        T<span class="token operator">-</span><span class="token operator">></span>data<span class="token operator">=</span>ch<span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">// 根结点数据域置为ch</span>
+        <span class="token function">CreateBiTree</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 递归创建左子树</span>
+        <span class="token function">CreateBiTree</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 递归创建右子树 </span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">InOrderTraverse</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 中序遍历二叉树T的递归算法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 若二叉树非空</span>
+        <span class="token function">InOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 中序遍历左子树 </span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 访问根结点 </span>
+        <span class="token function">InOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 中序遍历右子树         </span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">PreOrderTraverse</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 前序遍历二叉树T的递归算法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 若二叉树非空</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 访问根结点 </span>
+        <span class="token function">PreOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前序遍历左子树 </span>
+        <span class="token function">PreOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前序序遍历右子树         </span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">PostOrderTraverse</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 后续遍历二叉树T的递归算法</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 若二叉树非空 </span>
+        <span class="token function">PostOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 后续遍历左子树 </span>
+        <span class="token function">PostOrderTraverse</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 后续遍历右子树 </span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 访问根结点 </span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span> 
+
+<span class="token comment" spellcheck="true">/*
+    * 如果是空树，递归结束，深度为0，否则执行以下操作：
+    *         # 递归计算左子树的深度记为m 
+    *        # 递归计算右子树的深度记为n
+    *        # 如果m大于n，二叉树的深度为m+1，否则为n+1 
+    */</span>
+<span class="token keyword">int</span> <span class="token function">Depth</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 计算二叉树的T的深度</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> 
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> m<span class="token operator">=</span><span class="token function">Depth</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n<span class="token operator">=</span><span class="token function">Depth</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>m<span class="token operator">></span>n<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">int</span> <span class="token function">NodeCount</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 统计二叉树T中结点的个数</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果是空树，则结点个数为0，递归结束</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> <span class="token function">NodeCount</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">NodeCount</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+
+<span class="token keyword">void</span> <span class="token function">InOrderTraverse_rc</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 中序遍历二叉树T的非递归算法</span>
+    SqStack S<span class="token punctuation">;</span>
+    <span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    BiTree p<span class="token operator">=</span>T<span class="token punctuation">,</span>q<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">||</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// p非空 </span>
+            <span class="token function">Push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            p<span class="token operator">=</span>p<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token function">Pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 退栈</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>q<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 访问根结点 </span>
+            p<span class="token operator">=</span>q<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 遍历右子树 </span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 如果是空树，递归结束，否则执行以下操作</span>
+<span class="token comment" spellcheck="true">//  # 申请一个新结点空间，复制根结点；</span>
+<span class="token comment" spellcheck="true">//  # 递归复制左子树。 </span>
+<span class="token comment" spellcheck="true">//  # 递归复制右子树。</span>
+<span class="token keyword">void</span> <span class="token function">Copy</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">,</span>BiTree <span class="token operator">&amp;</span>NewT<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 复制一颗和T完全相同的二叉树</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>T<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                            <span class="token comment" spellcheck="true">// 如果是空树，递归结束 </span>
+        NewT<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        NewT<span class="token operator">=</span><span class="token punctuation">(</span>BiTree<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>BiTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//        printf("%c %c",NewT->data,T->data);</span>
+
+        NewT<span class="token operator">-</span><span class="token operator">></span>data<span class="token operator">=</span>T<span class="token operator">-</span><span class="token operator">></span>data<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// 复制根结点 </span>
+        <span class="token function">Copy</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">,</span>NewT<span class="token operator">-</span><span class="token operator">></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 递归复制左子树 </span>
+        <span class="token function">Copy</span><span class="token punctuation">(</span>T<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">,</span>NewT<span class="token operator">-</span><span class="token operator">></span>rchild<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 递归复制右子树 </span>
+    <span class="token punctuation">}</span>                                    <span class="token comment" spellcheck="true">// else </span>
+<span class="token punctuation">}</span> 
+
+<span class="token comment" spellcheck="true">// ABC##DE#G##F### 树的输入数据（通过递归） </span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    BiTree bt<span class="token punctuation">,</span>newBt<span class="token punctuation">;</span>
+    <span class="token function">CreateBiTree</span><span class="token punctuation">(</span>bt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"后序遍历的结果是："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">InOrderTraverse_rc</span><span class="token punctuation">(</span>bt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n树的深度为：%d"</span><span class="token punctuation">,</span><span class="token function">Depth</span><span class="token punctuation">(</span>bt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n树的结点个数为：%d"</span><span class="token punctuation">,</span><span class="token function">NodeCount</span><span class="token punctuation">(</span>bt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// --------------------</span>
+    <span class="token function">Copy</span><span class="token punctuation">(</span>bt<span class="token punctuation">,</span>newBt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">InOrderTraverse_rc</span><span class="token punctuation">(</span>newBt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">赵博</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://bigzcoder.gitee.io/2019/04/17/datastructbintree/">https://bigzcoder.gitee.io/2019/04/17/datastructbintree/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">赵博</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%81%E9%81%8D%E5%8E%86/">
+                                    <span class="chip bg-color">二叉树、遍历</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/04/18/datastructthreadbintree/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="线索二叉树和遍历">
+                        
+                        <span class="card-title">线索二叉树和遍历</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            线索二叉树的原理，遍历的方法
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-04-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%81%E9%81%8D%E5%8E%86/">
+                        <span class="chip bg-color">二叉树、遍历</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2015/07/31/javascriptadvancedfx/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JavaScript高阶函数">
+                        
+                        <span class="card-title">JavaScript高阶函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            高阶函数的一种
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2015-07-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: .docx<br />'
+            + '文章作者: .docx<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">.docx</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "2";
+                    var startDate = "11";
+                    var startHour = "11";
+                    var startMinute = "29";
+                    var startSecond = "5";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/bigzcoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:840350739@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=840350739" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 840350739" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

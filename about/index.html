@@ -370,21 +370,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">8</a></span>
+    <span class="count"><a href="/">21</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">6</a></span>
+    <span class="count"><a href="/categories">11</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">6</a></span>
+    <span class="count"><a href="/tags">16</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -400,21 +400,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">8</a></span>
+    <span class="count"><a href="/">21</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">6</a></span>
+    <span class="count"><a href="/categories">11</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">6</a></span>
+    <span class="count"><a href="/tags">16</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -558,7 +558,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,2,1,0,0,0,0,0,4,1],
+                data: [0,0,0,0,2,1,0,0,0,0,0,4,5],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -600,7 +600,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"日记","value":1},{"name":"hexo","value":1},{"name":"C++","value":1},{"name":"逆向","value":3},{"name":"个人日记","value":1},{"name":"网络","value":1}],
+                data: [{"name":"hexo","value":1},{"name":"逆向","value":3},{"name":"数据库","value":1},{"name":"数据结构","value":6},{"name":"个人日记","value":1},{"name":"JavaScript","value":1},{"name":"网络","value":1},{"name":"软件工程","value":1},{"name":"Web前端","value":4},{"name":"日记","value":1},{"name":"C++","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -624,7 +624,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["逆向","日记","java","hexo","C++","网络"]
+                data: ["逆向","二叉树、遍历","哈夫曼树","日记","CSS3","java","hexo","数据库","图","排序"]
             }
         ],
         yAxis: [
@@ -637,7 +637,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [3,2,1,1,1,1],
+                data: [3,2,2,2,2,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -755,12 +755,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/%E6%97%A5%E8%AE%B0/">
-                <span class="chip center-align waves-effect waves-light chip-default">日记</span>
-            </a>
-            
-            
-            
             <a href="/tags/java/">
                 <span class="chip center-align waves-effect waves-light chip-default">java</span>
             </a>
@@ -773,20 +767,82 @@
             
             
             
-            <a href="/tags/C/">
-                <span class="chip center-align waves-effect waves-light chip-default">C++</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E9%80%86%E5%90%91/">
                 <span class="chip center-align waves-effect waves-light chip-default">逆向</span>
             </a>
             
             
             
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据库</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%9B%BE/">
+                <span class="chip center-align waves-effect waves-light chip-default">图</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%81%E9%81%8D%E5%8E%86/">
+                <span class="chip center-align waves-effect waves-light chip-default">二叉树、遍历</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">
+                <span class="chip center-align waves-effect waves-light chip-default">哈夫曼树</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                <span class="chip center-align waves-effect waves-light chip-default">排序</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%97%A5%E8%AE%B0/">
+                <span class="chip center-align waves-effect waves-light chip-default">日记</span>
+            </a>
+            
+            
+            
+            
+            
             <a href="/tags/%E7%BD%91%E7%BB%9C/">
                 <span class="chip center-align waves-effect waves-light chip-default">网络</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">软件工程</span>
+            </a>
+            
+            
+            
+            <a href="/tags/CSS3/">
+                <span class="chip center-align waves-effect waves-light chip-default">CSS3</span>
+            </a>
+            
+            
+            
+            <a href="/tags/DIV-CSS/">
+                <span class="chip center-align waves-effect waves-light chip-default">DIV+CSS</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%BC%80%E5%8F%91%E8%80%85%E9%9C%80%E7%9F%A5/">
+                <span class="chip center-align waves-effect waves-light chip-default">开发者需知</span>
+            </a>
+            
+            
+            
+            <a href="/tags/C/">
+                <span class="chip center-align waves-effect waves-light chip-default">C++</span>
             </a>
             
             
@@ -1120,6 +1176,11 @@ $(function () {
 
     <!--腾讯兔小巢-->
     
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
