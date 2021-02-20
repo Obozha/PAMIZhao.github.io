@@ -242,7 +242,6 @@ mark {
 
 .bg-color {
     background-image: linear-gradient(to right, #000000 0%, #000000 100%);
-	 opacity: 0.8; 
 }
 
 .text-color {
@@ -593,6 +592,9 @@ header .go-back i {
     font-size: 2.5rem;
     font-weight: 400;
 }
+
+
+
 /*
 @-webkit-keyframes rainbow {
 
