@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bigzcoder.gitee.io/2021/01/16/c-stlinstruction/</loc>
-    <lastmod>2021-02-15</lastmod>
+    <loc>https://bigzcoder.gitee.io/2020/06/27/autohexomaker/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2015/07/31/javascriptadvancedfx/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/01/26/x32dbgdeepfindcode/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2019/04/21/databasereviewsql/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2020/06/26/helloworld/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/02/14/rip-ospf/</loc>
+    <lastmod>2021-02-24</lastmod>
   </url>
   <url>
     <loc>https://bigzcoder.gitee.io/2021/01/23/crushsoftwarebase/</loc>
-    <lastmod>2021-02-15</lastmod>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/01/16/c-stlinstruction/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/01/26/crushsoftwarebase2/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/02/14/softwareengswdt/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2020/07/16/2020716/</loc>
+    <lastmod>2021-02-24</lastmod>
   </url>
   <url>
     <loc>https://bigzcoder.gitee.io/2021/02/14/webtipssolvemixedcontent/</loc>
@@ -37,10 +73,6 @@
     <lastmod>2021-02-14</lastmod>
   </url>
   <url>
-    <loc>https://bigzcoder.gitee.io/2019/04/21/databasereviewsql/</loc>
-    <lastmod>2021-02-14</lastmod>
-  </url>
-  <url>
     <loc>https://bigzcoder.gitee.io/2019/04/18/datastructthreadbintree/</loc>
     <lastmod>2021-02-14</lastmod>
   </url>
@@ -49,39 +81,7 @@
     <lastmod>2021-02-14</lastmod>
   </url>
   <url>
-    <loc>https://bigzcoder.gitee.io/2015/07/31/javascriptadvancedfx/</loc>
-    <lastmod>2021-02-14</lastmod>
-  </url>
-  <url>
     <loc>https://bigzcoder.gitee.io/2021/02/14/webtipscss3ab/</loc>
     <lastmod>2021-02-14</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2021/02/14/softwareengswdt/</loc>
-    <lastmod>2021-02-14</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2021/02/14/rip-ospf/</loc>
-    <lastmod>2021-02-14</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2020/06/26/helloworld/</loc>
-    <lastmod>2021-02-12</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2021/01/26/x32dbgdeepfindcode/</loc>
-    <lastmod>2021-02-12</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2020/07/16/2020716/</loc>
-    <lastmod>2021-02-12</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2020/06/27/autohexomaker/</loc>
-    <lastmod>2021-02-12</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2021/01/26/crushsoftwarebase2/</loc>
-    <lastmod>2021-02-12</lastmod>
   </url>
 </urlset> 
