@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bigzcoder.gitee.io/2021/02/24/graduatestudentretestqa/</loc>
+    <lastmod>2021-03-02</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/03/01/cppio/</loc>
+    <lastmod>2021-03-01</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2021/03/01/hedacode/</loc>
+    <lastmod>2021-03-01</lastmod>
+  </url>
+  <url>
+    <loc>https://bigzcoder.gitee.io/2020/06/26/helloworld/</loc>
+    <lastmod>2021-02-24</lastmod>
+  </url>
+  <url>
     <loc>https://bigzcoder.gitee.io/2020/06/27/autohexomaker/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>
@@ -14,10 +30,6 @@
   </url>
   <url>
     <loc>https://bigzcoder.gitee.io/2019/04/21/databasereviewsql/</loc>
-    <lastmod>2021-02-24</lastmod>
-  </url>
-  <url>
-    <loc>https://bigzcoder.gitee.io/2020/06/26/helloworld/</loc>
     <lastmod>2021-02-24</lastmod>
   </url>
   <url>
