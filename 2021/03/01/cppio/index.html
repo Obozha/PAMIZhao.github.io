@@ -537,10 +537,10 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
 <li>eof() 到达文件尾</li>
 </ul>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="例子一"><a href="#例子一" class="headerlink" title="例子一"></a>例子一</h3><p>读取hello.txt文件中的字符串，写入out.txt中</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;fstream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;fstream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -565,10 +565,10 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
 <p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210302150429.png" alt="hello.txt"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210302150503.png" alt="out.txt"></p>
 <h3 id="例子二"><a href="#例子二" class="headerlink" title="例子二"></a>例子二</h3><p>例子一代码读取的是string类型的数据，那么对于int类型数据怎么办呢？</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;fstream&gt;</span> </span><span class="token comment" spellcheck="true">// 文件流函数</span>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;fstream></span> </span><span class="token comment" spellcheck="true">// 文件流函数</span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -585,7 +585,7 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
     <span class="token punctuation">}</span>
 
     <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>infile<span class="token punctuation">.</span><span class="token function">eof</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        infile<span class="token operator">&gt;&gt;</span>v<span class="token operator">&gt;&gt;</span>w<span class="token operator">&gt;&gt;</span>weight<span class="token punctuation">;</span>
+        infile<span class="token operator">>></span>v<span class="token operator">>></span>w<span class="token operator">>></span>weight<span class="token punctuation">;</span>
         cost<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token operator">=</span>weight<span class="token punctuation">;</span>
         cost<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span>weight<span class="token punctuation">;</span>
     <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 从文件读取到v、w、weight变量 </span>
@@ -620,8 +620,8 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
 <p>result.txt没有完整截图，数据太多所以省略掉了</p>
 </blockquote>
 <h3 id="例子三"><a href="#例子三" class="headerlink" title="例子三"></a>例子三</h3><p>混合类型怎么办呢？</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;fstream&gt;</span></span>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;fstream></span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -644,7 +644,7 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>is1<span class="token punctuation">.</span><span class="token function">is_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello1.txt没有打开"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    is1<span class="token operator">&gt;&gt;</span>a<span class="token operator">&gt;&gt;</span>b<span class="token operator">&gt;&gt;</span>i<span class="token punctuation">;</span>
+    is1<span class="token operator">>></span>a<span class="token operator">>></span>b<span class="token operator">>></span>i<span class="token punctuation">;</span>
     cout<span class="token operator">&lt;&lt;</span>a<span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token operator">&lt;&lt;</span>b<span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token operator">&lt;&lt;</span>i<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     is1<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 读hello1</span>
@@ -653,7 +653,7 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>is1<span class="token punctuation">.</span><span class="token function">is_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         cout<span class="token operator">&lt;&lt;</span><span class="token string">"hello1.txt没有打开"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    is1<span class="token operator">&gt;&gt;</span>x<span class="token operator">&gt;&gt;</span>a<span class="token punctuation">;</span>
+    is1<span class="token operator">>></span>x<span class="token operator">>></span>a<span class="token punctuation">;</span>
     cout<span class="token operator">&lt;&lt;</span>x<span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token operator">&lt;&lt;</span>a<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     is1<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 读hello2</span>
@@ -665,9 +665,9 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
 <li>ostringstream向string写数据</li>
 <li>stringstream既可以读取数据也可向string写数据，就像string是一个IO流一样。</li>
 </ul>
-<h3 id="istringstream的用法"><a href="#istringstream的用法" class="headerlink" title="istringstream的用法"></a>istringstream的用法</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;sstream&gt;</span> </span><span class="token comment" spellcheck="true">// 使用istringstream所需要的头文件</span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<h3 id="istringstream的用法"><a href="#istringstream的用法" class="headerlink" title="istringstream的用法"></a>istringstream的用法</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;sstream></span> </span><span class="token comment" spellcheck="true">// 使用istringstream所需要的头文件</span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -675,7 +675,7 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
     string str<span class="token operator">=</span><span class="token string">"Hello World I am Lee"</span><span class="token punctuation">;</span>
     istringstream <span class="token function">is</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 将is绑定到str</span>
     string s<span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>is<span class="token operator">&gt;&gt;</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>is<span class="token operator">>></span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
         cout<span class="token operator">&lt;&lt;</span>s<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span> 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -683,9 +683,9 @@ file<span class="token punctuation">.</span><span class="token function">seekg</
 <p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210302172051.png" alt="运行结果"></p>
 <p>这相当于把一个句子拆分成单词，联系到前文提到的从文件中读取string的方法，如果读取到的string对象为一个句子，包含很多单词，那么我们就可以运用这种方法把string对象拆分开来。</p>
 <h3 id="ostringstream的用法"><a href="#ostringstream的用法" class="headerlink" title="ostringstream的用法"></a>ostringstream的用法</h3><p>ostringstream同样是由一个string对象构造而来，ostringstream类向一个string插入字符。 </p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;sstream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;sstream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -1641,6 +1641,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
