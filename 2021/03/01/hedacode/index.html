@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-10
                 </div>
                 
 
@@ -506,6 +506,7 @@
 <h2 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h2><p>编制一个程序，将输入的一行字符以加密的形式输出，然后将其解密，解密的字符序列与输入的正文进行比较，吻合时输出解密的正文，否则输出解密失败。加密时，将每个字符的ASCII码依次反复加上“4962873”中的数字，并在32（‘’）~122（‘z’）之间做模运算。解密和加密的顺序相反。例如，对于输入正文<code>the result of 3 and 2 is not 8</code>,则运行结果为：</p>
 <pre class=" language-html"><code class="language-html">xqk□zlvyuzqn□6＄jtf(9#m!&amp;pw#
 the result of 3 and 2 is not 8</code></pre>
+<p>分析<br><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210310151616.png" alt=""></p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">encode</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> str<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -541,6 +542,7 @@ the result of 3 and 2 is not 8</code></pre>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">// 只有1和它本身两个因数的自然数  - 素数 </span>
 <span class="token keyword">int</span> <span class="token function">isPrime</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">int</span> i<span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -557,8 +559,20 @@ the result of 3 and 2 is not 8</code></pre>
 
 <span class="token keyword">void</span> <span class="token function">testPrime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">int</span> m<span class="token punctuation">,</span>n<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"请输入m、n:"</span><span class="token punctuation">;</span>
-    cin<span class="token operator">&gt;&gt;</span>m<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span> 
+
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"请输入两个数:"</span><span class="token punctuation">;</span>
+    cin<span class="token operator">&gt;&gt;</span>a<span class="token operator">&gt;&gt;</span>b<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 这里把mn位置确定好 </span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">&gt;</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        m<span class="token operator">=</span>b<span class="token punctuation">;</span>
+        n<span class="token operator">=</span>a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        m<span class="token operator">=</span>a<span class="token punctuation">;</span>
+        n<span class="token operator">=</span>b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
     cout<span class="token operator">&lt;&lt;</span><span class="token string">"m到n之间的素数有："</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token keyword">int</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>m<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>m<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -573,7 +587,10 @@ the result of 3 and 2 is not 8</code></pre>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token function">testPrime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210303161437.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/mnsushu_ver2.0.png" alt=""></p>
+<blockquote>
+<p>注意 1不是素数</p>
+</blockquote>
 <h2 id="分开字符与数字"><a href="#分开字符与数字" class="headerlink" title="分开字符与数字"></a>分开字符与数字</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span>
 
@@ -605,6 +622,36 @@ the result of 3 and 2 is not 8</code></pre>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">testStr2SubStr</span><span class="token punctuation">(</span><span class="token string">"ks47ks18m9ws4"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
+<p>string版本</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span> </span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">testStr2SubStr</span><span class="token punctuation">(</span><span class="token keyword">const</span> string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    string num<span class="token punctuation">,</span>character<span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>str<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">&gt;</span><span class="token number">47</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token number">58</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            num<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span>k<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            character<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span>k<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    cout<span class="token operator">&lt;&lt;</span>num<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>character<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    string str<span class="token punctuation">;</span> 
+
+    <span class="token comment" spellcheck="true">// str可以直接输入 </span>
+    cin<span class="token operator">&gt;&gt;</span>str<span class="token punctuation">;</span>
+    <span class="token function">testStr2SubStr</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210309161300.png" alt=""></p>
 <h2 id="字符串子串序列颠倒"><a href="#字符串子串序列颠倒" class="headerlink" title="字符串子串序列颠倒"></a>字符串子串序列颠倒</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stack&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span>
@@ -1067,7 +1114,7 @@ the result of 3 and 2 is not 8</code></pre>
 
 
 <span class="token punctuation">}</span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210308210921.png" alt="">z</p>
+<p><img src="https://cdn.jsdelivr.net/gh/bigzcoder/PicBed/img/20210308210921.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
